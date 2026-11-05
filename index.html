@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EJL WATER STATION</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<aside class="sidebar">
+    <div class="brand">
+        <div class="logo"><svg width="48" height="50" viewBox="0 0 48 50" role="img" aria-label="EJL Water Station"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8cf0fb"/><stop offset=".55" stop-color="#22c1e0"/><stop offset="1" stop-color="#0a7fa3"/></linearGradient><clipPath id="lgC"><path d="M24 3C31 12 39 19 39 30a15 15 0 0 1-30 0C9 19 17 12 24 3z"/></clipPath></defs><path d="M24 3C31 12 39 19 39 30a15 15 0 0 1-30 0C9 19 17 12 24 3z" fill="url(#lgA)"/><g clip-path="url(#lgC)"><path d="M0 30q6-5 12 0t12 0 12 0 12 0V50H0z" fill="#fff" opacity=".35"/><path d="M0 36q6-5 12 0t12 0 12 0 12 0V50H0z" fill="#063a57" opacity=".35"/></g><path d="M15 24c.5-4 3-7.5 6-10.5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".8"/><ellipse cx="24" cy="46.5" rx="13" ry="2.2" fill="none" stroke="#5fdcf2" stroke-width="1.5" opacity=".6"/><ellipse cx="24" cy="46.5" rx="7" ry="1.1" fill="none" stroke="#5fdcf2" stroke-width="1.5" opacity=".9"/></svg></div>
+        <div><b>EJL WATER STATION</b><small>Water Station Management</small></div>
+    </div>
+    <nav>
+        <button class="on" data-page="dashboard" onclick="showPage('dashboard')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg><span class="l">Dashboard</span><span class="s">Dashboard</span></button>
+        <button data-page="orders" onclick="showPage('orders')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg><span class="l">Customer Orders</span><span class="s">Orders</span></button>
+        <button data-page="map" onclick="showPage('map')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11.5a7 7 0 0 0-14 0C5 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="l">Delivery Map</span><span class="s">Map</span></button>
+        <button data-page="customers" onclick="showPage('customers')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-3.5 3-5.5 6.5-5.5s6 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 15c1.8.8 2.8 2.5 3 5"/></svg><span class="l">Customer List</span><span class="s">Customers</span></button>
+        <button data-page="payments" onclick="showPage('payments')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="13" rx="3"/><path d="M2.5 10.5h19M6.5 15h4"/></svg><span class="l">Credits &amp; Payments</span><span class="s">Credits</span></button>
+    </nav>
+    <svg class="waves" style="position:absolute;left:0;bottom:0;width:100%;height:150px;pointer-events:none" viewBox="0 0 250 150" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 70Q-30 50 0 70T60 70 120 70 180 70 240 70 300 70V150H-60z" fill="#12b3d3" opacity=".16"/><path d="M-60 98Q-30 80 0 98T60 98 120 98 180 98 240 98 300 98V150H-60z" fill="#12b3d3" opacity=".26"/></svg>
+</aside>
+
+<button class="collapse" id="collapseBtn" onclick="toggleSidebar()" aria-label="Collapse or expand menu" title="Collapse / expand menu"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+
+<main class="main-content">
+    <header>
+        <div>
+            <h1>Dashboard</h1>
+            <p id="subtitle">Overview of the Entire Water Station</p>
+        </div>
+        <button class="btn" onclick="openOrderForm()">+ New Order</button>
+    </header>
+
+    <section id="dashboard" class="page">
+        <div class="stats">
+            <div class="stat"><span>Total Orders</span><b id="totalOrders">0</b></div>
+            <div class="stat"><span>Total Sales</span><b id="totalSales">₱0</b></div>
+            <div class="stat"><span>Pending Deliveries</span><b id="pendingOrders">0</b></div>
+            <div class="stat"><span>Total Credits</span><b id="totalDebt">₱0</b></div>
+        </div>
+        <div class="panel">
+            <h2>Collected Payments</h2>
+            <div class="bar"><span id="collectBar"></span></div>
+            <div class="bar-l"><span id="barPaid"></span><span id="barDebt"></span></div>
+        </div>
+        <div class="panel">
+            <h2>Recent Orders</h2>
+            <div id="recentList"></div>
+        </div>
+    </section>
+
+    <section id="orders" class="page hidden">
+        <div class="panel">
+            <div class="chips" id="orderChips">
+                <button class="chip on" data-f="All">All</button>
+                <button class="chip" data-f="Pending">Pending</button>
+                <button class="chip" data-f="Delivered">Delivered</button>
+                <button class="chip" data-f="Unpaid">Unpaid</button>
+            </div>
+            <div id="orderList" class="cards"></div>
+        </div>
+    </section>
+
+    <section id="map" class="page hidden">
+        <div class="map-grid">
+            <div class="panel nopad">
+                <div id="googleMap"></div>
+                <div class="legend">
+                    <span><i style="background:#f59e0b"></i>Pending</span>
+                    <span><i style="background:#16a34a"></i>Delivered</span>
+                </div>
+            </div>
+            <div class="panel">
+                <h2>Deliveries</h2>
+                <div id="mapList"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customers" class="page hidden">
+        <div id="customerList" class="cards"></div>
+    </section>
+
+    <section id="payments" class="page hidden">
+        <div class="stats two">
+            <div class="stat"><span>Total Credits</span><b id="debtSummary">₱0</b></div>
+            <div class="stat"><span>Total Paid</span><b id="paidSummary">₱0</b></div>
+        </div>
+        <div id="paymentList" class="cards"></div>
+    </section>
+</main>
+
+<dialog id="orderDialog">
+    <form id="orderForm">
+        <h2>New Order</h2>
+        <label>Customer name<input name="customer" required></label>
+        <label>Contact number<input name="phone" inputmode="tel"></label>
+        <label>Delivery address<input name="address" required></label>
+        <div class="row">
+            <label>Gallons<input name="gallons" type="number" min="1" step="1" required></label>
+            <label>Price per gallon (₱)<input name="price" type="number" min="1" step="0.01" value="25" required></label>
+        </div>
+        <p class="total" id="formTotal">Total: ₱0.00</p>
+        <div class="actions">
+            <button type="button" class="btn ghost" onclick="closeOrderForm()">Cancel</button>
+            <button type="submit" class="btn">Save Order</button>
+        </div>
+    </form>
+</dialog>
+
+<dialog id="profileDialog">
+    <div id="profileBody"></div>
+    <div class="actions"><button type="button" class="btn ghost" onclick="document.getElementById('profileDialog').close()">Close</button></div>
+</dialog>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+<!-- Replace YOUR_API_KEY with your Google Maps API key -->
+<script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</body>
+</html>
